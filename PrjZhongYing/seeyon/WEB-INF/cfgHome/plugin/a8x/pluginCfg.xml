@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<id>a8x</id>
+	<name>A8X插件</name>
+	<category>20160322</category>
+	<initializer>com.seeyon.apps.a8x.A8xPluginInitializer</initializer>
+</plugin>

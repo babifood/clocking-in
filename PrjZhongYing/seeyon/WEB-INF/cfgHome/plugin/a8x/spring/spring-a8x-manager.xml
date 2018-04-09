@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+	<bean id="formFormulaFunctionInOrg" class="com.seeyon.ctp.form.modules.engin.formula.function.FormFormulaFunctionInOrg">
+		<property name="sort" value="100" />
+	</bean>
+	<bean id="a8xTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5" />
+		<property name="maxPoolSize" value="10" />
+		<property name="queueCapacity" value="25" />
+	</bean>
+	<bean id="a8xEventListener" class="com.seeyon.apps.a8x.listener.A8xEventListener">
+		<property name="colManager" ref="colManager" />
+		<property name="a8xTaskExecutor" ref="a8xTaskExecutor" />
+	</bean>
+	<bean id="a8xScheduleManager" class="com.seeyon.apps.a8x.schedule.manager.A8xScheduleManagerImpl" />
+	<bean id="diBiaoSingleService" class="com.seeyon.apps.a8x.oa.manager.A8xDiBiaoSingleService">
+		<property name="formManager" ref="formManager" />
+		<property name="serialNumberManager" ref="serialNumberManager" />
+		<property name="enumManagerNew" ref="enumManagerNew" />
+	</bean>
+	<bean id="a8xTriggerActionDesignManager" class="com.seeyon.apps.a8x.listener.A8xTriggerActionDesignManager" />
+	<bean id="a8xTriggerActionTypeManager" class="com.seeyon.apps.a8x.listener.A8xTriggerActionTypeManager" />
+	<bean id="a8xCollaborationTaskEvent" class="com.seeyon.apps.a8x.listener.A8xCollaborationTaskEvent" />
+
+	<bean id="a8xWorkflowEvent" class="com.seeyon.apps.a8x.listener.A8xWorkflowEventImpl" />
+</beans>
